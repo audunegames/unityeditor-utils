@@ -1,0 +1,20 @@
+{
+  "name": "com.audune.utilities",
+  "displayName": "Audune Utilities",
+  "version": "0.1.0",
+  "unity": "2021.3",
+  "description": "Utility scripts for Unity 2021.3",
+  "documentationUrl": "https://github.com/audunegames/auduneutilities",
+  "changelogUrl": "https://github.com/audunegames/auduneutilities/commits/v0.1.0",
+  "licensesUrl": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "license": "GPL-3.0-or-later",
+  "author": {
+    "name": "Audune Games",
+    "email": "support@audune.com",
+    "url": "https://audune.com/"
+  },
+  "dependencies": {
+    "com.unity.inputsystem": "1.5.0",
+    "com.unity.textmeshpro": "3.0.6"
+  }
+}
