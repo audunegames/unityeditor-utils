@@ -1,4 +1,4 @@
-﻿namespace Audune.Utils.Text
+﻿namespace Audune.Utils.Input
 {
   // Class that defines a TextMeshPro sprite
   public sealed class TextMeshProSprite
