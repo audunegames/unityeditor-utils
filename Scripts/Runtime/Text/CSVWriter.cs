@@ -30,7 +30,7 @@ namespace Audune.Utils.Text
       var datas = records.Select(record => _serializer.Serialize(record));
       var keys = datas.SelectMany(entry => entry.Keys).Distinct().ToList();
 
-      textWriter.WriteLine(string.Join(", ", keys));
+      textWriter.WriteLine(string.Join(",", keys));
 
       foreach (var data in datas)
       {
@@ -54,7 +54,7 @@ namespace Audune.Utils.Text
           }
         }
 
-        textWriter.WriteLine(string.Join(", ", values));
+        textWriter.WriteLine(string.Join(",", values));
       }
     }
   }
