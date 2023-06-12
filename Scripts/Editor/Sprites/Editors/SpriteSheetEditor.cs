@@ -1,10 +1,11 @@
+using Audune.Utils.Sprites;
 using UnityEditor;
 using UnityEngine;
 
-namespace Audune.Utils.Sprites
+namespace Audune.Utils.Sprites.Editor
 {
   [CustomEditor(typeof(SpriteSheet))]
-  public class SpriteSheetEditor : Editor
+  public class SpriteSheetEditor : UnityEditor.Editor
   {
     // Draw the inspector
     public override void OnInspectorGUI()

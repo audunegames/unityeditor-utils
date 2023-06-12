@@ -1,10 +1,11 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Audune.Utils.Sprites
+namespace Audune.Utils.Sprites.Editor
 {
-  [CustomPropertyDrawer(typeof(SpriteData))]
-  public class SpriteDataDrawer : PropertyDrawer
+  // Class that defines a property drawer for sprite sheet entries
+  [CustomPropertyDrawer(typeof(SpriteSheetEntry))]
+  public class SpriteSheetEntryDrawer : PropertyDrawer
   {
     // Draw the property
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)

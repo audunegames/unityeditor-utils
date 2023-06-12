@@ -1,12 +1,11 @@
 using System;
-using System.Drawing;
 using Unity.Collections;
 using UnityEditor.AssetImporters;
 using UnityEngine;
 
-namespace Audune.Utils.Sprites
+namespace Audune.Utils.Sprites.Editor
 {
-  // Class that defines a source texture
+  // Class that defines a raw texture
   public class RawTexture : IDisposable
   {
     // The color buffer
@@ -16,7 +15,7 @@ namespace Audune.Utils.Sprites
     public readonly SourceTextureInformation information;
 
 
-    // Return the size of the source texture
+    // Return the size of the raw texture
     public int Width => information.width;
     public int Height => information.height;
     public Vector2Int Size => new Vector2Int(information.width, information.height);

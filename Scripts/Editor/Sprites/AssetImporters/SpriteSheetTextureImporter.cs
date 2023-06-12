@@ -1,13 +1,14 @@
+using Audune.Utils.Sprites;
 using System;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.AssetImporters;
 using UnityEngine;
 
-namespace Audune.Utils.Sprites
+namespace Audune.Utils.Sprites.Editor
 {
   // Class that defines an importer for a texture containing a sprite sheet
-  [ScriptedImporter(202103001, new string[] { }, new string[] { "bmp", "gif", "jpg", "jpeg", "png", "tif", "tiff" })]
+  [ScriptedImporter(202203002, new string[] { }, new string[] { "bmp", "gif", "jpg", "jpeg", "png", "tif", "tiff" })]
   public class SpriteSheetTextureImporter : ScriptedImporter
   {
     // Importer settings

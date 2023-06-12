@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Audune.Utils.Sprites
 {
-  // Class that defines a sprite in a sprite sheet
+  // Class that defines an entry in a sprite sheet
   [Serializable]
-  public class SpriteData
+  public class SpriteSheetEntry
   {
     // Sprite settings
     [Tooltip("The name of the sprite")]
@@ -19,7 +19,7 @@ namespace Audune.Utils.Sprites
 
 
     // Constructor
-    public SpriteData(string name, Rect rect, Vector2? pivot = null, Vector4 ? border = null)
+    public SpriteSheetEntry(string name, Rect rect, Vector2? pivot = null, Vector4 ? border = null)
     {
       this.name = name;
       this.rect = rect;

@@ -8,6 +8,6 @@ namespace Audune.Utils.Sprites
   {
     // Sprite sheet settings
     [Tooltip("List of sprites in the sprite sheet")]
-    public List<SpriteData> sprites = new List<SpriteData>();
+    public List<SpriteSheetEntry> sprites = new List<SpriteSheetEntry>();
   }
 }

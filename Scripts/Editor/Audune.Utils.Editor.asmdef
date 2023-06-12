@@ -1,6 +1,6 @@
 {
     "name": "Audune.Utils.Editor",
-    "rootNamespace": "Audune.Utils",
+    "rootNamespace": "Audune.Utils.Editor",
     "references": [
         "GUID:26965773348a31c4faadd2014d04a252"
     ],
