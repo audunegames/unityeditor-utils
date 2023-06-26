@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Audune.Utils.Unity
+namespace Audune.Utils.Types
 {
   // Attribute that defines options for drawing a type reference
   public class TypeReferenceAttribute : PropertyAttribute

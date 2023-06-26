@@ -1,11 +1,11 @@
+using Audune.Utils.Unity.Editor;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace Audune.Utils.Unity.Editor
+namespace Audune.Utils.Types.Editor
 {
   // Class that defines a drawer for type references
   [CustomPropertyDrawer(typeof(TypeReference))]
@@ -21,6 +21,8 @@ namespace Audune.Utils.Unity.Editor
     // Draw the property GUI
     public override void OnGUI(Rect rect, SerializedProperty property, GUIContent label)
     {
+      using var scope = new EditorGUI.PropertyScope(rect, label, property);
+
       _attribute ??= fieldInfo.GetCustomAttribute<TypeReferenceAttribute>();
       if (_attribute == null)
       {
@@ -31,6 +33,8 @@ namespace Audune.Utils.Unity.Editor
       _types ??= TypeUtils.GetChildTypes(_attribute);
 
       var typeName = property.FindPropertyRelative("_typeName");
+      if (string.IsNullOrEmpty(typeName.stringValue))
+        typeName.stringValue = _types[0].AssemblyQualifiedName;
 
       label = EditorGUI.BeginProperty(rect, label, property);
 

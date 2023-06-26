@@ -1,6 +1,6 @@
 using System;
 
-namespace Audune.Utils.Unity
+namespace Audune.Utils.Types
 {
   // Enum that defines flags for type display name options
   [Flags]
