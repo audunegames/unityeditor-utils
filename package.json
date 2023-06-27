@@ -12,9 +12,5 @@
     "name": "Audune Games",
     "email": "support@audune.com",
     "url": "https://audune.com/"
-  },
-  "dependencies": {
-    "com.unity.inputsystem": "1.5.0",
-    "com.unity.textmeshpro": "3.0.0"
   }
 }
