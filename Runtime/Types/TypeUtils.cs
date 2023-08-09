@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
-namespace Audune.Utils.Types
+namespace Audune.Utils
 {
   // Class that defines utility methods for types
   public static class TypeUtils

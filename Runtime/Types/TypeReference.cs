@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Audune.Utils.Types
+namespace Audune.Utils
 {
   // Class that defines a serializable reference to a type
   [Serializable]

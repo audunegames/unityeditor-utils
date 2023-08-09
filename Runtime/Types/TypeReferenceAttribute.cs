@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Audune.Utils.Types
+namespace Audune.Utils
 {
   // Attribute that defines options for drawing a type reference
   public class TypeReferenceAttribute : PropertyAttribute
@@ -10,16 +10,17 @@ namespace Audune.Utils.Types
     public Type baseType { get; set; }
 
     // The display string options for the type
-    public TypeDisplayStringOptions displayStringOptions { get; set; }
+    public TypeDisplayOptions displayOptions { get; set; }
 
 
     // Constructor
-    public TypeReferenceAttribute(Type baseType)
+    public TypeReferenceAttribute(Type baseType, TypeDisplayOptions displayOptions = TypeDisplayOptions.None)
     {
       if (baseType == null) 
         throw new ArgumentNullException(nameof(baseType));
 
       this.baseType = baseType;
+      this.displayOptions = displayOptions;
     }
   }
 }

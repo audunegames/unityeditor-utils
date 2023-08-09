@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Audune.Utils.Unity.Editor
+namespace Audune.Utils.Editor
 {
   // Class that defines extensions for the EditorGUILayout class
   public static class EditorGUILayoutExtensions

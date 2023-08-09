@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Audune.Utils.Editor
 { 
-  // Class that defines utility methods for a rect in the editor
-  public static class RectEditorUtils
+  // Class that defines utility methods for rects in the editor
+  public static class EditorRectUtils
   {
     #region Expanding rects
     // Expand a rect to the left

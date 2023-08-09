@@ -4,9 +4,9 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Audune.Utils.Unity.Editor
+namespace Audune.Utils.Editor
 {
-  // Class that defines extensions for the EditorGUI
+  // Class that defines extensions for the EditorGUI class
   public static class EditorGUIExtensions
   {
     #region Drawer methods for an array of properties
@@ -141,6 +141,15 @@ namespace Audune.Utils.Unity.Editor
     {
       return ItemPopup(rect, null, items, selected, displayedItemSelector);
     }
+    #endregion
+
+    #region Drawer methods for a search tree view dropdown
+    public static void SearchDropdown<T, TWindow>(Rect rect, GUIContent label) where TWindow : SearchWindow<T>
+    {
+      //if (EditorGUI.DropdownButton(rect, label, FocusType.Keyboard))
+      //  SearchWindow<T>.ShowAsDropDown(rect, path, new GUIContent("Select localized key"));
+    }
+
     #endregion
   }
 }

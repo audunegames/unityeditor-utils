@@ -1,11 +1,10 @@
-using Audune.Utils.Unity.Editor;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace Audune.Utils.Types.Editor
+namespace Audune.Utils.Editor
 {
   // Class that defines a drawer for type references
   [CustomPropertyDrawer(typeof(TypeReference))]
@@ -38,7 +37,7 @@ namespace Audune.Utils.Types.Editor
 
       label = EditorGUI.BeginProperty(rect, label, property);
 
-      var newType = EditorGUIExtensions.ItemPopup(rect, label, _types, type => type.AssemblyQualifiedName == typeName.stringValue, type => new GUIContent(type.ToDisplayString(_attribute?.displayStringOptions ?? TypeDisplayStringOptions.None)));
+      var newType = EditorGUIExtensions.ItemPopup(rect, label, _types, type => type.AssemblyQualifiedName == typeName.stringValue, type => new GUIContent(type.ToDisplayString(_attribute?.displayOptions ?? TypeDisplayOptions.None)));
       typeName.stringValue = newType.AssemblyQualifiedName;
 
       EditorGUI.EndProperty();
