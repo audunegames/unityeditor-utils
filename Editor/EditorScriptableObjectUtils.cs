@@ -1,9 +1,8 @@
-using Audune.Utils.Types;
 using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace Audune.Utils.Unity.Editor
+namespace Audune.Utils.Editor
 {
   // Class that defines utility methods for scriptable objects in the editor
   public static class EditorScriptableObjectUtils
