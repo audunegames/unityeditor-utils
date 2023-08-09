@@ -1,11 +1,11 @@
 {
   "name": "com.audune.utils",
   "displayName": "Audune Utilities",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "unity": "2022.3",
-  "description": "Utility scripts for Unity 2022.3 LTS",
-  "documentationUrl": "https://github.com/audunegames/unity-utils",
-  "changelogUrl": "https://github.com/audunegames/unity-utils/commits/v0.3.0",
+  "description": "Common utility scripts for Unity 2022.3 LTS or higher",
+  "documentationUrl": "https://github.com/audunegames/utils",
+  "changelogUrl": "https://github.com/audunegames/utils/commits/v0.3.0",
   "licensesUrl": "https://www.gnu.org/licenses/gpl-3.0.html",
   "license": "GPL-3.0-or-later",
   "author": {
