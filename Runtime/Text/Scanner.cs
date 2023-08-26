@@ -30,7 +30,7 @@ namespace Audune.Utils
     // Constructor
     public Scanner(string input, int index = 0)
     {
-      _input = input;
+      _input = input ?? string.Empty;
       _index = index;
     }
 

@@ -225,8 +225,8 @@ namespace Audune.Utils.Editor
         list.serializedProperty.InsertArrayElementAtIndex(index);
 
         // Invoke the callback on the element
-        _onAfterAdded?.Invoke(list.serializedProperty.GetArrayElementAtIndex(index), index);
         onAfterAddedOnce?.Invoke(list.serializedProperty.GetArrayElementAtIndex(index), index);
+        _onAfterAdded?.Invoke(list.serializedProperty.GetArrayElementAtIndex(index), index);
 
         // Apply the changes
         list.serializedProperty.serializedObject.ApplyModifiedProperties();
@@ -240,8 +240,8 @@ namespace Audune.Utils.Editor
         // Invoke the callback on all elements to remove
         foreach (var index in list.selectedIndices)
         {
-          _onBeforeRemoved?.Invoke(list.serializedProperty.GetArrayElementAtIndex(index), index);
           onBeforeRemovedOnce?.Invoke(list.serializedProperty.GetArrayElementAtIndex(index), index);
+          _onBeforeRemoved?.Invoke(list.serializedProperty.GetArrayElementAtIndex(index), index);
         }
 
         // Remove all elements to remove

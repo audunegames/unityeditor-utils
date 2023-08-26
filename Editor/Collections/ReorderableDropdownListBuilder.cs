@@ -66,19 +66,23 @@ namespace Audune.Utils.Editor
   public static class ReorderableDropdownListBuilder
   {
     // Create a builder for the child types of the specified object type 
-    public static ReorderableDropdownListBuilder<Type> CreateForObjectTypes<TType>(TypeDisplayOptions typeDisplayOptions)
+    public static ReorderableDropdownListBuilder<Type> CreateForObjectTypes<TType>(TypeDisplayOptions typeDisplayOptions, Func<TType, object> itemSelector = null)
     {
+      itemSelector ??= obj => obj;
+
       return new ReorderableDropdownListBuilder<Type>()
         .SetDropdownCreator((list, buttonRect, addCallback) => typeof(TType).CreateGenericMenuForChildTypes(typeDisplayOptions, null, addCallback).DropDown(buttonRect))
-        .SetDropdownAddCallback((element, type) => element.boxedValue = Activator.CreateInstance(type));
+        .SetDropdownAddCallback((element, type) => element.boxedValue = itemSelector((TType)Activator.CreateInstance(type)));
     }
 
     // Create a builder for the child types of the specified scriptable object type 
-    public static ReorderableDropdownListBuilder<Type> CreateForScriptableObjectTypes<TType>(TypeDisplayOptions typeDisplayOptions) where TType : ScriptableObject
+    public static ReorderableDropdownListBuilder<Type> CreateForScriptableObjectTypes<TType>(TypeDisplayOptions typeDisplayOptions, Func<TType, object> itemSelector = null) where TType : ScriptableObject
     {
+      itemSelector ??= obj => obj;
+
       return new ReorderableDropdownListBuilder<Type>()
         .SetDropdownCreator((list, buttonRect, addCallback) => typeof(TType).CreateGenericMenuForChildTypes(typeDisplayOptions, null, addCallback).DropDown(buttonRect))
-        .SetDropdownAddCallback((element, type) => element.objectReferenceValue = EditorScriptableObjectUtils.CreateInstanceWithNiceName(type));
+        .SetDropdownAddCallback((element, type) => element.boxedValue = itemSelector((TType)EditorScriptableObjectUtils.CreateInstanceWithNiceName(type)));
     }
   }
 }
