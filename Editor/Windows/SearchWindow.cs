@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Audune.Utils.Editor
+namespace Audune.Utils.UnityEditor.Editor
 {
   // Class that defines a search editor window
   public abstract class SearchWindow<T> : EditorWindow

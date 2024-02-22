@@ -1,12 +1,8 @@
 {
-    "name": "Audune.Utils.UnityEditor.Editor",
-    "rootNamespace": "Audune.Utils.UnityEditor.Editor",
-    "references": [
-        "GUID:8d3eaed832bf78046bfb9b4fc4d6d44e"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "name": "Audune.Utils.UnityEditor",
+    "rootNamespace": "Audune.Utils.UnityEditor",
+    "references": [],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

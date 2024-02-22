@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
-namespace Audune.Utils.Editor
+namespace Audune.Utils.UnityEditor.Editor
 {
   // Class that defines a tree view for a search editor window
   public abstract class SearchTreeView<T> : TreeView
