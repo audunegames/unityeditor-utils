@@ -234,6 +234,9 @@ namespace Audune.Utils.UnityEditor.Editor
       return (list) => {
         var index = list.serializedProperty.arraySize;
 
+        // Update the property
+        list.serializedProperty.serializedObject.Update();
+
         // Add the element
         list.serializedProperty.InsertArrayElementAtIndex(index);
 
@@ -250,6 +253,9 @@ namespace Audune.Utils.UnityEditor.Editor
     protected ReorderableList.RemoveCallbackDelegate CreateRemoveCallback(ElementCallback onBeforeRemovedOnce = null)
     {
       return (list) => {
+        // Update the property
+        list.serializedProperty.serializedObject.Update();
+
         // Invoke the callback on all elements to remove
         foreach (var index in list.selectedIndices)
         {
@@ -271,6 +277,9 @@ namespace Audune.Utils.UnityEditor.Editor
     protected ReorderableList.ReorderCallbackDelegateWithDetails CreateReorderCallback(ElementReorderedCallback onReorderedOnce = null)
     {
       return (list, oldIndex, newIndex) => {
+        // Update the property
+        list.serializedProperty.serializedObject.Update();
+
         // Move the element
         list.serializedProperty.MoveArrayElement(oldIndex, newIndex);
 
