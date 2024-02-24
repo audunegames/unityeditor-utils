@@ -9,5 +9,6 @@ namespace Audune.Utils.UnityEditor
     None = 0,
     DontUseNicifiedNames = 1 << 0,
     DontShowNamespace = 1 << 1,
+    IgnoreDisplayNames = 1 << 2,
   }
 }

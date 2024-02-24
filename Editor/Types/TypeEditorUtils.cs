@@ -2,6 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using System.Text;
+using System.Reflection;
 
 namespace Audune.Utils.UnityEditor.Editor
 {
@@ -14,8 +15,13 @@ namespace Audune.Utils.UnityEditor.Editor
     {
       if (type == null)
         throw new ArgumentNullException(nameof(type));
-      
-      if (!displayOptions.HasFlag(TypeDisplayOptions.DontUseNicifiedNames))
+
+      var displayNameAttribute = type.GetCustomAttribute<TypeDisplayNameAttribute>();
+      if (!displayOptions.HasFlag(TypeDisplayOptions.IgnoreDisplayNames) && displayNameAttribute != null)
+      {
+        return displayNameAttribute.name;
+      }
+      else if (!displayOptions.HasFlag(TypeDisplayOptions.DontUseNicifiedNames))
       {
         var builder = new StringBuilder();
         builder.Append(ObjectNames.NicifyVariableName(type.Name));
