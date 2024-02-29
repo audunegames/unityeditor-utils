@@ -12,8 +12,6 @@ Enhance your IMGUI-based editors and property drawers with extension methods and
 
 ## Installation
 
-### Requirements
-
 ### Installing from the OpenUPM registry
 
 To install this package as a package from the OpenUPM registry in the Unity Editor, use the following steps:
