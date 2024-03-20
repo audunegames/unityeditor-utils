@@ -14,7 +14,7 @@ namespace Audune.Utils.UnityEditor.Editor
 
       if (options.HasFlag(ReorderableListOptions.DrawFoldout))
       {
-        var topRect = rect.AlignTop(EditorGUIUtility.singleLineHeight);
+        var topRect = rect.AlignTop(EditorGUIUtility.singleLineHeight, EditorGUIUtility.standardVerticalSpacing, out rect);
         var foldoutRect = options.HasFlag(ReorderableListOptions.DrawInfoField) ? topRect.AlignLeft(EditorGUIUtility.labelWidth) : topRect;
         list.serializedProperty.isExpanded = EditorGUI.Foldout(foldoutRect, list.serializedProperty.isExpanded, label, true);
 
@@ -28,7 +28,7 @@ namespace Audune.Utils.UnityEditor.Editor
         }
 
         if (list.serializedProperty.isExpanded)
-          list.DoList(rect.ContractTop(EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing));
+          list.DoList(rect);
       }
       else
       {
@@ -43,7 +43,7 @@ namespace Audune.Utils.UnityEditor.Editor
 
       if (options.HasFlag(ReorderableListOptions.DrawFoldout))
       {
-        var topRect = EditorGUILayout.GetControlRect();
+        var topRect = EditorGUILayout.GetControlRect(true, EditorGUIUtility.singleLineHeight);
         var foldoutRect = options.HasFlag(ReorderableListOptions.DrawInfoField) ? topRect.AlignLeft(EditorGUIUtility.labelWidth) : topRect;
         list.serializedProperty.isExpanded = EditorGUI.Foldout(foldoutRect, list.serializedProperty.isExpanded, label, true);
 
