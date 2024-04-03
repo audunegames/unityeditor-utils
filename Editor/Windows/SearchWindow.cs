@@ -64,9 +64,16 @@ namespace Audune.Utils.UnityEditor.Editor
     // OnToolbarGUI is called when the toolbar is drawn
     protected virtual void OnToolbarGUI()
     {
+      // Search bar
       GUI.SetNextControlName("searchField");
       _treeView.searchString = EditorGUILayout.TextField(_treeView.searchString, EditorStyles.toolbarSearchField, GUILayout.ExpandWidth(true));
       GUI.FocusControl("searchField");
+
+      // Tree view buttons
+      if (GUILayout.Button(new GUIContent("Expand All", "Expand all tree view items"), EditorStyles.toolbarButton, GUILayout.ExpandWidth(false)))
+        _treeView.ExpandAll();
+      if (GUILayout.Button(new GUIContent("Collapse All", "Collapse all tree view items"), EditorStyles.toolbarButton, GUILayout.ExpandWidth(false)))
+        _treeView.CollapseAll();
     }
 
     // OnTreeViewGUI is called when the tree view is drawn
