@@ -39,10 +39,10 @@ namespace Audune.Utils.UnityEditor.Editor
       _treeView.SetSelectionData(GetPropertyValue());
 
       // Set the property value of the window when an item is selected
-      _treeView.onItemSelected += item => SetPropertyValue(item);
+      _treeView.OnItemSelected += item => SetPropertyValue(item);
 
       // Close the window when an item is double clicked
-      _treeView.onItemDoubleClicked += item => Close();
+      _treeView.OnItemDoubleClicked += item => Close();
     }
 
     // OnGUI is called when the editor is drawn
@@ -64,12 +64,9 @@ namespace Audune.Utils.UnityEditor.Editor
     // OnToolbarGUI is called when the toolbar is drawn
     protected virtual void OnToolbarGUI()
     {
-      if (GUILayout.Button("Expand All", EditorStyles.toolbarButton, GUILayout.Width(80)))
-        _treeView.ExpandAll();
-      if (GUILayout.Button("Collapse All", EditorStyles.toolbarButton, GUILayout.Width(80)))
-        _treeView.CollapseAll();
-
+      GUI.SetNextControlName("searchField");
       _treeView.searchString = EditorGUILayout.TextField(_treeView.searchString, EditorStyles.toolbarSearchField, GUILayout.ExpandWidth(true));
+      GUI.FocusControl("searchField");
     }
 
     // OnTreeViewGUI is called when the tree view is drawn
