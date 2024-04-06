@@ -29,6 +29,9 @@ namespace Audune.Utils.UnityEditor.Editor
 
       // Function to select the icon of a group item
       public Func<string[], bool, Texture2D> groupIconSelector = (path, expanded) => null;
+
+      // Function to highlight a found search string
+      public Func<string, string> searchStringHighlighter = text => $"<b><color=blue>{text}</color></b>";
     }
 
 
@@ -219,7 +222,7 @@ namespace Audune.Utils.UnityEditor.Editor
     protected virtual string HighlightSearchString(string text)
     {
       if (isSearching)
-        return Regex.Replace(text, Regex.Escape(searchString), m => $"<b><color=blue>{m.Value}</color></b>", RegexOptions.IgnoreCase);
+        return Regex.Replace(text, Regex.Escape(searchString), m => _options.searchStringHighlighter(m.Value), RegexOptions.IgnoreCase);
       else
         return text;
     }
