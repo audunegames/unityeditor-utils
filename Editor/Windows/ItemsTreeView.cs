@@ -216,7 +216,7 @@ namespace Audune.Utils.UnityEditor.Editor
     }
 
     // Highlight the search string in the specified string
-    protected string HighlightSearchString(string text)
+    protected virtual string HighlightSearchString(string text)
     {
       if (isSearching)
         return Regex.Replace(text, Regex.Escape(searchString), m => $"<b><color=blue>{m.Value}</color></b>", RegexOptions.IgnoreCase);
