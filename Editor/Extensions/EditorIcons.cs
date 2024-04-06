@@ -7,28 +7,32 @@ namespace Audune.Utils.UnityEditor.Editor
   public static class EditorIcons
   {
     // Editor icons
-    public static Texture2D prefab;
-    public static Texture2D prefabModel;
-    public static Texture2D prefabVariant;
-    public static Texture2D scriptableObject;
-    public static Texture2D scene;
-    public static Texture2D gameObject;
-    public static Texture2D assembly;
-    public static Texture2D script;
-    public static Texture2D folder;
-    public static Texture2D folderOpened;
-    public static Texture2D folderEmpty;
-    public static Texture2D defaultAsset;
-    public static Texture2D textAsset;
-    public static Texture2D assemblyDefinitionAsset;
-    public static Texture2D assemblyDefinitionReferenceAsset;
-    public static Texture2D text;
-    public static Texture2D font;
-    public static Texture2D settings;
-    public static Texture2D refresh;
-    public static Texture2D checkMark;
-    public static Texture2D warningMark;
-    public static Texture2D errorMark;
+    public static readonly Texture2D prefab;
+    public static readonly Texture2D prefabModel;
+    public static readonly Texture2D prefabVariant;
+    public static readonly Texture2D scriptableObject;
+    public static readonly Texture2D scene;
+    public static readonly Texture2D gameObject;
+    public static readonly Texture2D assembly;
+    public static readonly Texture2D script;
+    public static readonly Texture2D folder;
+    public static readonly Texture2D folderOpened;
+    public static readonly Texture2D folderEmpty;
+    public static readonly Texture2D defaultAsset;
+    public static readonly Texture2D textAsset;
+    public static readonly Texture2D assemblyDefinitionAsset;
+    public static readonly Texture2D assemblyDefinitionReferenceAsset;
+    public static readonly Texture2D text;
+    public static readonly Texture2D font;
+    public static readonly Texture2D settings;
+    public static readonly Texture2D refresh;
+    public static readonly Texture2D checkMark;
+    public static readonly Texture2D warningMark;
+    public static readonly Texture2D errorMark;
+
+    // Editor colors
+    public static readonly Color warningColor = new Color(1.0f, 0.94f, 0.76f);
+    public static readonly Color errorColor = new Color(1.0f, 0.86f, 0.81f);
 
 
     // Static constructor
