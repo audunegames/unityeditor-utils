@@ -9,12 +9,12 @@ namespace Audune.Utils.UnityEditor.Editor
   {
     #region Getting children
     // Return an enumerable over the children of the object
-    public static IEnumerable<SerializedProperty> GetChildren(this SerializedObject serializedObject, Predicate<SerializedProperty> predicate = null)
+    public static IEnumerable<SerializedProperty> GetChildren(this SerializedObject serializedObject, bool enterChildren = false, Predicate<SerializedProperty> predicate = null)
     {
       if (serializedObject == null)
         throw new ArgumentNullException(nameof(serializedObject));
 
-      return SerializedPropertyExtensions.GetChildren(serializedObject.GetIterator(), predicate);
+      return SerializedPropertyExtensions.GetChildren(serializedObject.GetIterator(), enterChildren, predicate);
     }
     #endregion
   }

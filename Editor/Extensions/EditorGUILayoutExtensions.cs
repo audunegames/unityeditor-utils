@@ -36,15 +36,15 @@ namespace Audune.Utils.UnityEditor.Editor
 
     #region Drawing the children of a property
     // Draw the fields of the child properties in the serialized property
-    public static void ChildPropertyFields(SerializedProperty serializedProperty, Predicate<SerializedProperty> predicate, params GUILayoutOption[] options)
+    public static void ChildPropertyFields(SerializedProperty serializedProperty, bool enterChildren, Predicate<SerializedProperty> predicate, params GUILayoutOption[] options)
     {
-      MultiplePropertyFields(serializedProperty.GetChildren(predicate).ToArray(), options);
+      MultiplePropertyFields(serializedProperty.GetChildren(enterChildren, predicate).ToArray(), options);
     }
 
     // Draw the fields of the child properties in the serialized object
-    public static void ChildPropertyFields(SerializedObject serializedObject, Predicate<SerializedProperty> predicate, params GUILayoutOption[] options)
+    public static void ChildPropertyFields(SerializedObject serializedObject, bool enterChildren, Predicate<SerializedProperty> predicate, params GUILayoutOption[] options)
     {
-      MultiplePropertyFields(serializedObject.GetChildren(predicate).ToArray(), options);
+      MultiplePropertyFields(serializedObject.GetChildren(enterChildren, predicate).ToArray(), options);
     }
     #endregion
 

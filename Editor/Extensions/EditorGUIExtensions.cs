@@ -36,7 +36,7 @@ namespace Audune.Utils.UnityEditor.Editor
     }
     #endregion
 
-    #region Drawing for the array elements of a property
+    #region Drawing the array elements of a property
     // Draw the fields of the array element properties in the serialized property
     public static void ArrayElementPropertyFields(Rect rect, SerializedProperty serializedProperty, Func<SerializedProperty, int, GUIContent> labelSelector)
     {
@@ -60,27 +60,27 @@ namespace Audune.Utils.UnityEditor.Editor
 
     #region Drawing the children of a property
     // Draw the fields of the child properties in the serialized property
-    public static void ChildPropertyFields(Rect rect, SerializedProperty serializedProperty, Predicate<SerializedProperty> predicate)
+    public static void ChildPropertyFields(Rect rect, SerializedProperty serializedProperty, bool enterChildren, Predicate<SerializedProperty> predicate)
     {
-      MultiplePropertyFields(rect, serializedProperty.GetChildren(predicate).ToArray());
+      MultiplePropertyFields(rect, serializedProperty.GetChildren(enterChildren, predicate).ToArray());
     }
 
     // Draw the fields of the child properties in the serialized object
-    public static void ChildPropertyFields(Rect rect, SerializedObject serializedObject, Predicate<SerializedProperty> predicate)
+    public static void ChildPropertyFields(Rect rect, SerializedObject serializedObject, bool enterChildren, Predicate<SerializedProperty> predicate)
     {
-      MultiplePropertyFields(rect, serializedObject.GetChildren(predicate).ToArray());
+      MultiplePropertyFields(rect, serializedObject.GetChildren(enterChildren, predicate).ToArray());
     }
 
     // Return the height of the fields of the child properties in the serialized property
-    public static float GetChildPropertyFieldsHeight(SerializedProperty serializedProperty, Predicate<SerializedProperty> predicate)
+    public static float GetChildPropertyFieldsHeight(SerializedProperty serializedProperty, bool enterChildren, Predicate<SerializedProperty> predicate)
     {
-      return GetMultiplePropertyFieldsHeight(serializedProperty.GetChildren(predicate).ToArray());
+      return GetMultiplePropertyFieldsHeight(serializedProperty.GetChildren(enterChildren, predicate).ToArray());
     }
 
     // Return the height of the fields of the child properties in the serialized object
-    public static float GetChildPropertyFieldsHeight(SerializedObject serializedObject, Predicate<SerializedProperty> predicate)
+    public static float GetChildPropertyFieldsHeight(SerializedObject serializedObject, bool enterChildren, Predicate<SerializedProperty> predicate)
     {
-      return GetMultiplePropertyFieldsHeight(serializedObject.GetChildren(predicate).ToArray());
+      return GetMultiplePropertyFieldsHeight(serializedObject.GetChildren(enterChildren, predicate).ToArray());
     }
     #endregion
 
