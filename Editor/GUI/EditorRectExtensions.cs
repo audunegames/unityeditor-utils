@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Audune.Utils.UnityEditor.Editor
 { 
   // Class that defines extension methods for rects
-  public static class RectExtensions
+  public static class EditorRectExtensions
   {
     #region Moving rects
     // Move a rect to the left

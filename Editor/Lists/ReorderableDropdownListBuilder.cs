@@ -60,29 +60,4 @@ namespace Audune.Utils.UnityEditor.Editor
     }
     #endregion
   }
-
-
-  // Class that defines utility methods for the reorderable dropdown list builder
-  public static class ReorderableDropdownListBuilder
-  {
-    // Create a builder for the child types of the specified object type 
-    public static ReorderableDropdownListBuilder<Type> CreateForObjectTypes<TType>(TypeDisplayOptions typeDisplayOptions, Func<TType, object> itemSelector = null)
-    {
-      itemSelector ??= obj => obj;
-
-      return new ReorderableDropdownListBuilder<Type>()
-        .SetDropdownCreator((list, buttonRect, addCallback) => typeof(TType).CreateGenericMenuForChildTypes(typeDisplayOptions, null, addCallback).DropDown(buttonRect))
-        .SetDropdownAddCallback((element, index, type) => element.boxedValue = itemSelector((TType)Activator.CreateInstance(type)));
-    }
-
-    // Create a builder for the child types of the specified scriptable object type 
-    public static ReorderableDropdownListBuilder<Type> CreateForScriptableObjectTypes<TType>(TypeDisplayOptions typeDisplayOptions, Func<TType, object> itemSelector = null) where TType : ScriptableObject
-    {
-      itemSelector ??= obj => obj;
-
-      return new ReorderableDropdownListBuilder<Type>()
-        .SetDropdownCreator((list, buttonRect, addCallback) => typeof(TType).CreateGenericMenuForChildTypes(typeDisplayOptions, null, addCallback).DropDown(buttonRect))
-        .SetDropdownAddCallback((element, index, type) => element.boxedValue = itemSelector((TType)ScriptableObjectExtensions.CreateInstance(type)));
-    }
-  }
 }
