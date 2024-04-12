@@ -131,7 +131,7 @@ namespace Audune.Utils.UnityEditor.Editor
         {
           // Set the trimmed key and return the input
           trimmedKey = key;
-          return input[(key.Length + 1)..].TrimStart();
+          return input[(key.Length + 1)..].TrimStart(' ', '=');
         }
       }
 
