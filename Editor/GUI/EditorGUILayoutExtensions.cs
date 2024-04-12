@@ -122,18 +122,18 @@ namespace Audune.Utils.UnityEditor.Editor
     }
     #endregion
 
-    #region Drawing a search tree view dropdown
-    // Draw a search dropdown
-    public static void SearchDropdown<T, TWindow>(GUIContent dropdownLabel, SerializedProperty serializedProperty, params GUILayoutOption[] options) where TWindow : SearchWindow<T>
+    #region Drawing an item selector dropdown
+    // Draw an item selector dropdown
+    public static void ItemSelectorDropdown<TItem, TTreeView, TWindow>(GUIContent dropdownLabel, SerializedProperty serializedProperty, params GUILayoutOption[] options) where TTreeView : ItemSelectorTreeView<TItem> where TWindow : ItemSelectorWindow<TItem, TTreeView>
     {
       var rect = EditorGUILayout.GetControlRect(false, EditorGUIUtility.singleLineHeight, options);
-      EditorGUIExtensions.SearchDropdown<T, TWindow>(rect, dropdownLabel, serializedProperty);
+      EditorGUIExtensions.ItemSelectorDropdown<TItem, TTreeView, TWindow>(rect, dropdownLabel, serializedProperty);
     }
-    // Draw a search dropdown with a prefix label
-    public static void SearchDropdown<T, TWindow>(GUIContent label, GUIContent dropdownLabel, SerializedProperty serializedProperty, params GUILayoutOption[] options) where TWindow : SearchWindow<T>
+    // Draw an item selector with a prefix label
+    public static void ItemSelectorDropdown<TItem, TTreeView, TWindow>(GUIContent label, GUIContent dropdownLabel, SerializedProperty serializedProperty, params GUILayoutOption[] options) where TTreeView : ItemSelectorTreeView<TItem> where TWindow : ItemSelectorWindow<TItem, TTreeView>
     {
       var rect = EditorGUILayout.GetControlRect(label != null, EditorGUIUtility.singleLineHeight, options);
-      EditorGUIExtensions.SearchDropdown<T, TWindow>(rect, label, dropdownLabel, serializedProperty);
+      EditorGUIExtensions.ItemSelectorDropdown<TItem, TTreeView, TWindow>(rect, label, dropdownLabel, serializedProperty);
     }
     #endregion
   }

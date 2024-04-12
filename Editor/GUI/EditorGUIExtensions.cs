@@ -221,24 +221,24 @@ namespace Audune.Utils.UnityEditor.Editor
     }
     #endregion
 
-    #region Drawing a search tree view dropdown
-    // Draw a search dropdown
-    public static void SearchDropdown<T, TWindow>(Rect rect, GUIContent dropdownLabel, SerializedProperty serializedProperty) where TWindow : SearchWindow<T>
+    #region Drawing an item selector dropdown
+    // Draw an item selector dropdown
+    public static void ItemSelectorDropdown<TItem, TTreeView, TWindow>(Rect rect, GUIContent dropdownLabel, SerializedProperty serializedProperty) where TTreeView : ItemSelectorTreeView<TItem> where TWindow : ItemSelectorWindow<TItem, TTreeView>
     {
       if (EditorGUI.DropdownButton(rect, dropdownLabel, FocusType.Keyboard))
-        SearchWindow<T>.ShowAsDropDown<TWindow>(rect, serializedProperty);
+        ItemSelectorWindow<TItem, TTreeView>.OpenAsDropDown<TWindow>(rect, serializedProperty);
     }
 
-    // Draw a search dropdown with a prefix label
-    public static void SearchDropdown<T, TWindow>(Rect rect, GUIContent label, GUIContent dropdownLabel, SerializedProperty serializedProperty) where TWindow : SearchWindow<T>
+    // Draw an item selector dropdown with a prefix label
+    public static void ItemSelectorDropdown<TItem, TTreeView, TWindow>(Rect rect, GUIContent label, GUIContent dropdownLabel, SerializedProperty serializedProperty) where TTreeView : ItemSelectorTreeView<TItem> where TWindow : ItemSelectorWindow<TItem, TTreeView>
     {
       if (label != null)
         rect = EditorGUI.PrefixLabel(rect, label);
-      SearchDropdown<T, TWindow>(rect, dropdownLabel, serializedProperty);
+      ItemSelectorDropdown<TItem, TTreeView, TWindow>(rect, dropdownLabel, serializedProperty);
     }
 
-    // Return the height of a search dropdown
-    public static float GetSearchDropdownHeight(SerializedProperty serializedProperty)
+    // Return the height of an item selector dropdown
+    public static float GetItemSelectorDropdownHeight(SerializedProperty serializedProperty)
     {
       return EditorGUIUtility.singleLineHeight;
     }
