@@ -10,17 +10,23 @@ namespace Audune.Utils.UnityEditor.Editor
   // Class that defines a tree view for displaying serialized property search results
   public class SerializedPropertySearchTreeView : ItemTreeView<SerializedPropertySearchResult>
   {
-    // Default strings
-    private const string _prefabsDisplayName = "Prefabs";
-    private const string _scriptableObjectsDisplayName = "Scriptable objects";
-    private const string _scenesDisplayName = "Scene objects";
+    // Strings for item display names
+    protected const string _prefabsDisplayName = "Prefabs";
+    protected const string _scriptableObjectsDisplayName = "Scriptable objects";
+    protected const string _scenesDisplayName = "Scene objects";
 
-    // Default keys
-    private const string _objectKey = "object";
-    private const string _componentKey = "component";
-    private const string _nameKey = "name";
+    // Keys for item matchers
+    protected const string _objectKey = "object";
+    protected const string _componentKey = "component";
+    protected const string _nameKey = "name";
+    protected const string _valueKey = "value";
 
-    private static readonly string[] _keys = new[] { _objectKey, _componentKey, _nameKey };
+    // Array that contains all keys for item matchers
+    protected static readonly string[] _keys = new[] { _objectKey, _componentKey, _nameKey, _valueKey };
+
+
+    // Return the item matcher for the property value
+    protected virtual ItemMatcher<SerializedPropertySearchResult> _propertyValueMatcher => ItemMatcher.String<SerializedPropertySearchResult>(data => data.propertyValue?.ToString());
 
 
     // Constructor
@@ -41,7 +47,8 @@ namespace Audune.Utils.UnityEditor.Editor
       matcher = ItemMatcher.Keys(
         (_objectKey, ItemMatcher.String<SerializedPropertySearchResult>(data => data.asset.assetName, data => data.component.componentPath)),
         (_componentKey, ItemMatcher.String<SerializedPropertySearchResult>(data => data.component.componentScript?.name)),
-        (_nameKey, ItemMatcher.String<SerializedPropertySearchResult>(data => data.ToString())));
+        (_nameKey, ItemMatcher.String<SerializedPropertySearchResult>(data => data.ToString())),
+        (_valueKey, _propertyValueMatcher));
     }
 
 

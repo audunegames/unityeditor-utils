@@ -12,7 +12,7 @@ namespace Audune.Utils.UnityEditor.Editor
   public abstract class ItemTreeView<TItem> : TreeView
   {
     // Class that defines a column in an item tree view
-    public sealed class Column
+    public class Column
     {
       // Delegate for drawing an item in the column
       public delegate void Drawer(Rect rect, DataItem item);
@@ -164,7 +164,7 @@ namespace Audune.Utils.UnityEditor.Editor
       }
 
       // Set the tree view options
-      multiColumnHeader = columns.ToTreeViewHeader();
+      multiColumnHeader = CreateMultiColumnHeader(_columns);
       rowHeight = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
       showAlternatingRowBackgrounds = true;
     }
@@ -330,7 +330,25 @@ namespace Audune.Utils.UnityEditor.Editor
     }
 
 
-    #region Tree view method overrides
+    // Convert an enumerable of columns to a multi column header
+    private static MultiColumnHeader CreateMultiColumnHeader(IEnumerable<Column> columns)
+    {
+      if (columns == null || columns.Count() == 0)
+        return null;
+
+      return new MultiColumnHeader(new MultiColumnHeaderState(columns.Select(column => new MultiColumnHeaderState.Column() {
+        headerContent = column.header,
+        width = column.width,
+        minWidth = column.width,
+        headerTextAlignment = column.alignment,
+        canSort = column.isSortable,
+        allowToggleVisibility = column.isHideable,
+        autoResize = true,
+      }).ToArray()));
+    }
+
+
+    #region Overridden tree view methods
     // Build the tree data and return the root item of the tree
     protected override TreeViewItem BuildRoot()
     {
