@@ -247,7 +247,7 @@ namespace Audune.Utils.UnityEditor.Editor
       menu.AddItem(new GUIContent(expanded ? "Collapse" : "Expand"), false, () => SetExpanded(item.id, !expanded));
 
       // Items for expanding the children of the group item
-      menu.AddItem(new GUIContent("Expand Children"), false, () => SetExpandedRecursive(item.id, true));
+      menu.AddItem(new GUIContent("Expand Recursively"), false, () => SetExpandedRecursive(item.id, true));
 
       menu.AddSeparator("");
 
@@ -321,11 +321,8 @@ namespace Audune.Utils.UnityEditor.Editor
     // Selet the data item with the specified data
     public void SetSelectionData(TItem data)
     {
-      var item = GetItemsRecursive()
-        .Where(item => item is DataItem dataItem && Equals(dataItem.data, data))
-        .FirstOrDefault();
-
-      if (item != default)
+      var item = GetItemsRecursive(item => item is DataItem dataItem && Equals(dataItem.data, data)).FirstOrDefault();
+      if (item != null)
         SetSelection(new[] { item.id }, TreeViewSelectionOptions.RevealAndFrame);
     }
 

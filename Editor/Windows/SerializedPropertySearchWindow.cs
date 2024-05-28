@@ -11,7 +11,7 @@ namespace Audune.Localization.Editor
     protected override void OnToolbarButtonsGUI()
     {
       // Rescan project button
-      if (GUILayout.Button(new GUIContent("Rescan Project", EditorIcons.refresh, "Rescan the project for assets that contain localized strings"), EditorStyles.toolbarButton, GUILayout.ExpandWidth(false)))
+      if (GUILayout.Button(new GUIContent("Rescan Project", EditorIcons.refresh, "Rescan the project for assets"), EditorStyles.toolbarButton, GUILayout.ExpandWidth(false)))
         Refresh(searchString: treeView.searchString, forceRebuild: true);
     }
   }

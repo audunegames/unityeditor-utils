@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
@@ -8,13 +9,14 @@ namespace Audune.Utils.UnityEditor.Editor
   public abstract class ItemWindow<TItem, TTreeView> : EditorWindow where TTreeView : ItemTreeView<TItem>
   {
     // Open the window
-    public static TWindow Open<TWindow>(TItem selected = default, string searchString = null) where TWindow : ItemWindow<TItem, TTreeView>
+    public static TWindow Open<TWindow>(TItem selected = default, string searchString = null, Action<TWindow> onBeforeRefresh = null) where TWindow : ItemWindow<TItem, TTreeView>
     {
       // Get the window and set its minimum size
       var window = GetWindow<TWindow>();
       window.minSize = new Vector2(800, 600);
 
       // Refresh the window
+      onBeforeRefresh?.Invoke(window);
       window.Refresh(searchString, selected);
 
       // Return the window
@@ -22,12 +24,13 @@ namespace Audune.Utils.UnityEditor.Editor
     }
 
     // Open the window as a dropdown at the specified button position
-    public static TWindow OpenAsDropDown<TWindow>(Rect buttonRect, TItem selected = default, string searchString = null) where TWindow : ItemWindow<TItem, TTreeView>
+    public static TWindow OpenAsDropDown<TWindow>(Rect buttonRect, TItem selected = default, string searchString = null, Action<TWindow> onBeforeRefresh = null) where TWindow : ItemWindow<TItem, TTreeView>
     {
       // Create the window
       var window = CreateInstance<TWindow>();
 
       // Refresh the window
+      onBeforeRefresh?.Invoke(window);
       window.Refresh(searchString, selected);
 
       // Show the window at the mouse position
@@ -65,7 +68,7 @@ namespace Audune.Utils.UnityEditor.Editor
 
       if (!string.IsNullOrEmpty(searchString))
         _treeView.searchString = searchString;
-      else if (selected != null)
+      else if (!Equals(selected, default))
         _treeView.SetSelectionData(selected);
     }
 
