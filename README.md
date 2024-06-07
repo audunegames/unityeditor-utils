@@ -1,4 +1,4 @@
-# Audune UnityEditor Utilities
+# Audune Unity IMGUI Editor Utilities
 
 [![openupm](https://img.shields.io/npm/v/com.audune.utils.unityeditor?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.audune.utils.unityeditor/)
 
@@ -8,7 +8,6 @@ Enhance your IMGUI-based editors and property drawers with extension methods and
 
 * Extension methods for `EditorGUI` and `EditorGUILayout` to draw multiple properties, an array of properties, children of properties, and inline object references. Draw popups and dropdowns for items, generic menus, enum flags and customized search tree views. Easily position a `Rect` in the editor with its extension methods.
 * Build a `ReorderableList` with a useful factory class, optionally with an add dropdown button.
-* Serialize types and draw them in the inspector as a dropdown from available child types.
 
 ## Installation
 
