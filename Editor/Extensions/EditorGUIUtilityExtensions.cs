@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Audune.Utils.UnityEditor.Editor
 {
   // Class that defines extensions for the EditorGUIUtility class and related GUI classes
-  public static class EditorGUIUtilityExtensions
+  public static partial class EditorGUIUtilityExtensions
   {
     // Class that defines a color scope
     public class ColorScope : GUI.Scope
