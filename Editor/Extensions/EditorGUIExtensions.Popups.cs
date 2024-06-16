@@ -25,9 +25,9 @@ namespace Audune.Utils.UnityEditor.Editor
     // Draw a popup containing the items in the list with a prefix label
     public static T ItemPopup<T>(Rect rect, GUIContent label, List<T> items, Predicate<T> selected, Func<T, GUIContent> displayedItemSelector)
     {
-      var currentIndex = Mathf.Max(0, items.FindIndex(selected));
+      var currentIndex = items.Count > 0 ? items.FindIndex(selected) : -1;
       var newIndex = EditorGUI.Popup(rect, label, currentIndex, items.Select(displayedItemSelector).ToArray());
-      return items[newIndex];
+      return items.Count > 0 ? items[newIndex] : default;
     }
 
     // Draw a popup containing the items in the list with the specified selected value with a prefix label
