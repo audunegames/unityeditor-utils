@@ -31,7 +31,7 @@ namespace Audune.Utils.UnityEditor.Editor
     // Draw a popup containing the items in the list with the specified selected value with a prefix label
     public static T ItemPopup<T>(GUIContent dropdownLabel, List<T> items, T selected, Func<T, GUIContent> displayedItemSelector, params GUILayoutOption[] options)
     {
-      return ItemPopup(dropdownLabel, items, t => t.Equals(selected), displayedItemSelector, options);
+      return ItemPopup(dropdownLabel, items, t => Equals(t, selected), displayedItemSelector, options);
     }
     #endregion
   }
