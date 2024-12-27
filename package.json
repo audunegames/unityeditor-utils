@@ -1,13 +1,13 @@
 {
   "name": "com.audune.utils.unityeditor",
   "displayName": "Unity IMGUI Editor Utilities",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "unity": "2022.3",
   "description": "Unity IMGUI Editor utilities for Unity 2022 LTS or higher.",
   "documentationUrl": "https://github.com/audunegames/unityeditor-utils",
-  "licensesUrl": "https://www.gnu.org/licenses/gpl-3.0.html",
-  "license": "GPL-3.0-or-later",
   "changelogUrl": "https://github.com/audunegames/unityeditor-utils/tree/master/CHANGELOG.md",
+  "licensesUrl": "https://www.gnu.org/licenses/lgpl-3.0.html",
+  "license": "LGPL-3.0-or-later",
   "author": {
     "name": "Audune Games",
     "email": "support@audune.com",
