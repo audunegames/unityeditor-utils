@@ -1,6 +1,9 @@
+using System;
+
 namespace Audune.Utils.UnityEditor
 {
   // Enum that defines options for drawing a reorderable list
+  [Flags]
   public enum ReorderableListOptions
   {
     None = 0,
