@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.9] - 2026-06-03
+
+### Fixed
+
+- Fixed UPM CLI installation path in sign and release workflow to avoid adding it to the package.
+
 ## [2.0.8] - 2026-05-18
 
 ### Fixed
@@ -13,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
-- Added sign and release workflow to sign and release an UPM package when a Git tag is pushed.
+- Added sign and release workflow to sign and release a UPM package when a Git tag is pushed.
 
 ## [2.0.7] - 2024-12-27
 
