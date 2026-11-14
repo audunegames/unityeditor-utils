@@ -1,4 +1,8 @@
 ﻿using UnityEditor.IMGUI.Controls;
+#if UNITY_6000_2_OR_NEWER
+using TreeViewItem = UnityEditor.IMGUI.Controls.TreeViewItem<int>;
+using TreeViewState = UnityEditor.IMGUI.Controls.TreeViewState<int>;
+#endif
 using UnityEngine;
 
 namespace Audune.Utils.UnityEditor.Editor
